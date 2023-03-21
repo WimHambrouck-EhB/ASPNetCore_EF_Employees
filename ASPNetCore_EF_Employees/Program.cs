@@ -1,4 +1,9 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using ASPNetCore_EF_Employees.Data;
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<ASPNetCore_EF_EmployeesContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("ASPNetCore_EF_EmployeesContext") ?? throw new InvalidOperationException("Connection string 'ASPNetCore_EF_EmployeesContext' not found.")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
@@ -22,6 +27,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Employees}/{action=Index}/{id?}");
 
 app.Run();

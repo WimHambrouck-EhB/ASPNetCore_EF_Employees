@@ -2,7 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using ASPNetCore_EF_Employees.Data;
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddDbContext<ASPNetCore_EF_EmployeesContext>(options =>
+builder.Services.AddDbContext<EmployeesContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("ASPNetCore_EF_EmployeesContext") ?? throw new InvalidOperationException("Connection string 'ASPNetCore_EF_EmployeesContext' not found.")));
 
 // Add services to the container.

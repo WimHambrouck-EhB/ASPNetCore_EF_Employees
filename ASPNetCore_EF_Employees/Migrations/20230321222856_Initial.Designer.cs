@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace ASPNetCore_EF_Employees.Migrations
 {
-    [DbContext(typeof(ASPNetCore_EF_EmployeesContext))]
-    [Migration("20230321220442_Initial")]
+    [DbContext(typeof(EmployeesContext))]
+    [Migration("20230321222856_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace ASPNetCore_EF_Employees.Migrations
 {
-    [DbContext(typeof(ASPNetCore_EF_EmployeesContext))]
-    partial class ASPNetCore_EF_EmployeesContextModelSnapshot : ModelSnapshot
+    [DbContext(typeof(EmployeesContext))]
+    partial class EmployeesContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
@@ -41,6 +41,32 @@ namespace ASPNetCore_EF_Employees.Migrations
                     b.HasKey("Deptno");
 
                     b.ToTable("Dept");
+
+                    b.HasData(
+                        new
+                        {
+                            Deptno = 10,
+                            Location = "Kaai",
+                            Name = "DT"
+                        },
+                        new
+                        {
+                            Deptno = 20,
+                            Location = "Danseart",
+                            Name = "RITCS"
+                        },
+                        new
+                        {
+                            Deptno = 30,
+                            Location = "Bloemenhof",
+                            Name = "MMM"
+                        },
+                        new
+                        {
+                            Deptno = 40,
+                            Location = "Jette",
+                            Name = "GL"
+                        });
                 });
 
             modelBuilder.Entity("ASPNetCore_EF_Employees.Models.Employee", b =>
@@ -83,6 +109,29 @@ namespace ASPNetCore_EF_Employees.Migrations
                     b.HasIndex("Mgr");
 
                     b.ToTable("Emp");
+
+                    b.HasData(
+                        new
+                        {
+                            Empno = 100,
+                            Commission = 100.0,
+                            Deptno = 10,
+                            Hiredate = new DateTime(2010, 9, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Job = 2,
+                            Name = "Steve",
+                            Salary = 1000.0
+                        },
+                        new
+                        {
+                            Empno = 200,
+                            Commission = 0.0,
+                            Deptno = 10,
+                            Hiredate = new DateTime(2016, 10, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Job = 3,
+                            Mgr = 100,
+                            Name = "Wim",
+                            Salary = 1000.0
+                        });
                 });
 
             modelBuilder.Entity("ASPNetCore_EF_Employees.Models.Employee", b =>

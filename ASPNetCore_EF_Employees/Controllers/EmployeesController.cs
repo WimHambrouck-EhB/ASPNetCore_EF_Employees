@@ -12,9 +12,9 @@ namespace ASPNetCore_EF_Employees.Controllers
 {
     public class EmployeesController : Controller
     {
-        private readonly ASPNetCore_EF_EmployeesContext _context;
+        private readonly EmployeesContext _context;
 
-        public EmployeesController(ASPNetCore_EF_EmployeesContext context)
+        public EmployeesController(EmployeesContext context)
         {
             _context = context;
         }

@@ -35,7 +35,7 @@ namespace ASPNetCore_EF_Employees.Attributes
             object? otherPropertyValue = otherPropertyInfo.GetValue(validationContext.ObjectInstance, null);
             if (Equals(value, otherPropertyValue))
             {
-                OtherPropertyDisplayName ??= GetDisplayNameForProperty(otherPropertyInfo);
+                 OtherPropertyDisplayName ??= GetDisplayNameForProperty(otherPropertyInfo);
 
                 string[]? memberNames = validationContext.MemberName != null
                     ? new[] { validationContext.MemberName }

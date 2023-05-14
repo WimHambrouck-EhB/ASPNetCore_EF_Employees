@@ -154,6 +154,12 @@ namespace ASPNetCore_EF_Employees.Controllers
                 return NotFound();
             }
 
+            // check if this employee is manager of other employees
+            if (await _context.Employees.AnyAsync(e => e.Mgr == employee.Empno))
+            {
+                return View("DeleteWithFK", employee);
+            }
+
             return View(employee);
         }
 

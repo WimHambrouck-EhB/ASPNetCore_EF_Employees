@@ -1,0 +1,11 @@
+﻿@model Employee
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h3>Cannot delete employee @Model.Name, because they are manager of one or more other employees.</h3>
+<h4>Assign those employees different managers (or delete them) first.</h4>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>

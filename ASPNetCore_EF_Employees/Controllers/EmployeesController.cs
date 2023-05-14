@@ -102,6 +102,16 @@ namespace ASPNetCore_EF_Employees.Controllers
                 return NotFound();
             }
 
+            // check if other employees have this employee as manager
+            if (employee.Job != Job.Manager)
+            {
+                var emps = _context.Employees.Where(e => e.Mgr == employee.Empno);
+                if (emps.Any())
+                {
+                    ModelState.AddModelError(nameof(Employee.Job), "Cannot change job, because this employee is the manager of one or more other employees.");
+                }
+            }
+
             if (ModelState.IsValid)
             {
                 try

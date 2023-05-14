@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 using System.Xml.Linq;
+using ASPNetCore_EF_Employees.Attributes;
 
 namespace ASPNetCore_EF_Employees.Models
 {
@@ -18,6 +19,7 @@ namespace ASPNetCore_EF_Employees.Models
 
         [Display(Name = nameof(Manager))]
         [ForeignKey(nameof(Manager))]
+        [CompareNoMatch(nameof(Empno), ErrorMessage = "An employee cannot be their own manager")]
         public int? Mgr { get; set; }
 
         public Employee? Manager { get; set; }

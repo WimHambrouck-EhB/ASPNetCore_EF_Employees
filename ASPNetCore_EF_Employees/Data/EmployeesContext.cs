@@ -17,6 +17,9 @@ namespace ASPNetCore_EF_Employees.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+           
+           
+
             modelBuilder.Entity<Department>()
                 .HasData(
                     new Department { Deptno = 10, Name = "DT", Location = "Kaai" },

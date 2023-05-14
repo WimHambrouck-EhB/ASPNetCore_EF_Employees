@@ -40,7 +40,7 @@ namespace ASPNetCore_EF_Employees.Migrations
 
                     b.HasKey("Deptno");
 
-                    b.ToTable("Dept");
+                    b.ToTable("Dept", (string)null);
 
                     b.HasData(
                         new
@@ -108,7 +108,7 @@ namespace ASPNetCore_EF_Employees.Migrations
 
                     b.HasIndex("Mgr");
 
-                    b.ToTable("Emp");
+                    b.ToTable("Emp", (string)null);
 
                     b.HasData(
                         new

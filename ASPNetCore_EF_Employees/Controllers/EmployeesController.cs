@@ -49,7 +49,7 @@ namespace ASPNetCore_EF_Employees.Controllers
         // GET: Employees/Create
         public IActionResult Create()
         {
-            ViewData["Deptno"] = new SelectList(_context.Set<Department>(), "Deptno", "Deptno");
+            ViewData["Deptno"] = new SelectList(_context.Set<Department>(), nameof(Department.Deptno), nameof(Department.Name));
             ViewData["Mgr"] = new SelectList(_context.Employees, "Empno", "Name");
             return View();
         }
@@ -67,7 +67,7 @@ namespace ASPNetCore_EF_Employees.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["Deptno"] = new SelectList(_context.Set<Department>(), "Deptno", "Deptno", employee.Deptno);
+            ViewData["Deptno"] = new SelectList(_context.Set<Department>(), nameof(Department.Deptno), nameof(Department.Name), employee.Deptno);
             ViewData["Mgr"] = new SelectList(_context.Employees, "Empno", "Name", employee.Mgr);
             return View(employee);
         }
@@ -85,7 +85,7 @@ namespace ASPNetCore_EF_Employees.Controllers
             {
                 return NotFound();
             }
-            ViewData["Deptno"] = new SelectList(_context.Set<Department>(), "Deptno", "Deptno", employee.Deptno);
+            ViewData["Deptno"] = new SelectList(_context.Set<Department>(), nameof(Department.Deptno), nameof(Department.Name), employee.Deptno);
             ViewData["Mgr"] = new SelectList(_context.Employees, "Empno", "Name", employee.Mgr);
             return View(employee);
         }
@@ -122,7 +122,7 @@ namespace ASPNetCore_EF_Employees.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["Deptno"] = new SelectList(_context.Set<Department>(), "Deptno", "Deptno", employee.Deptno);
+            ViewData["Deptno"] = new SelectList(_context.Set<Department>(), nameof(Department.Deptno), nameof(Department.Name), employee.Deptno);
             ViewData["Mgr"] = new SelectList(_context.Employees, "Empno", "Name", employee.Mgr);
             return View(employee);
         }

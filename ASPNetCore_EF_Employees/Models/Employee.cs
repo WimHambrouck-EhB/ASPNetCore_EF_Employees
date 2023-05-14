@@ -20,7 +20,7 @@ namespace ASPNetCore_EF_Employees.Models
         [ForeignKey(nameof(Manager))]
         public int? Mgr { get; set; }
 
-        public Employee Manager { get; set; } = null!;
+        public Employee? Manager { get; set; }
 
         [DataType(DataType.Date)]
         public DateTime Hiredate { get; set; }
@@ -38,6 +38,6 @@ namespace ASPNetCore_EF_Employees.Models
         [Display(Name = nameof(Department))]
         [ForeignKey(nameof(Department))]
         public int Deptno { get; set; }
-        public Department Department { get; set; } = null!;
+        public Department? Department { get; set; }
     }
 }

@@ -49,7 +49,7 @@ namespace ASPNetCore_EF_Employees.Controllers
         // GET: Employees/Create
         public IActionResult Create()
         {
-            ViewData["Deptno"] = new SelectList(_context.Set<Department>(), nameof(Department.Deptno), nameof(Department.Name));
+            ViewData["Deptno"] = new SelectList(_context.Departments, nameof(Department.Deptno), nameof(Department.Name));
             ViewData["Mgr"] = new SelectList(_context.Employees.Where(e => e.Job == Job.Manager), nameof(Employee.Empno), nameof(Employee.Name));
             return View();
         }
@@ -67,7 +67,7 @@ namespace ASPNetCore_EF_Employees.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["Deptno"] = new SelectList(_context.Set<Department>(), nameof(Department.Deptno), nameof(Department.Name), employee.Deptno);
+            ViewData["Deptno"] = new SelectList(_context.Departments, nameof(Department.Deptno), nameof(Department.Name), employee.Deptno);
             ViewData["Mgr"] = new SelectList(_context.Employees.Where(e => e.Job == Job.Manager), nameof(Employee.Empno), nameof(Employee.Name));
             return View(employee);
         }
@@ -85,7 +85,7 @@ namespace ASPNetCore_EF_Employees.Controllers
             {
                 return NotFound();
             }
-            ViewData["Deptno"] = new SelectList(_context.Set<Department>(), nameof(Department.Deptno), nameof(Department.Name), employee.Deptno);
+            ViewData["Deptno"] = new SelectList(_context.Departments, nameof(Department.Deptno), nameof(Department.Name), employee.Deptno);
             ViewData["Mgr"] = new SelectList(_context.Employees.Where(e => e.Job == Job.Manager), nameof(Employee.Empno), nameof(Employee.Name));
             return View(employee);
         }
@@ -132,7 +132,7 @@ namespace ASPNetCore_EF_Employees.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["Deptno"] = new SelectList(_context.Set<Department>(), nameof(Department.Deptno), nameof(Department.Name), employee.Deptno);
+            ViewData["Deptno"] = new SelectList(_context.Departments, nameof(Department.Deptno), nameof(Department.Name), employee.Deptno);
             ViewData["Mgr"] = new SelectList(_context.Employees.Where(e => e.Job == Job.Manager), nameof(Employee.Empno), nameof(Employee.Name));
             return View(employee);
         }
